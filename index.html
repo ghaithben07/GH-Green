@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BH Green - Premium Yard Work & Roof Cleaning</title>
+    <title>GH Green - Premium Yard Work & Landscaping</title>
     <!-- Load Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
@@ -22,6 +22,7 @@
             object-fit: cover;
         }
         .hero-bg {
+            /* Using a generic placeholder image for the home hero background */
             background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://placehold.co/1200x600/10B981/ffffff?text=Professional+Green+Services');
             background-size: cover;
             background-position: center;
@@ -35,7 +36,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 <div class="flex-shrink-0">
-                    <h1 class="text-3xl font-extrabold text-green-700">BH Green</h1>
+                    <h1 class="text-3xl font-extrabold text-green-700">GH Green</h1>
                     <p class="text-sm text-gray-500 hidden sm:block">Sustainable Solutions, Exceptional Results</p>
                 </div>
                 <!-- Desktop Navigation -->
@@ -43,7 +44,7 @@
                     <button class="nav-link text-gray-600 hover:text-green-700 py-5 transition duration-150" data-view="home">Home</button>
                     <button class="nav-link text-gray-600 hover:text-green-700 py-5 transition duration-150" data-view="trimming">Tree & Palm Trimming</button>
                     <button class="nav-link text-gray-600 hover:text-green-700 py-5 transition duration-150" data-view="planting">Plant Installation</button>
-                    <button class="nav-link text-gray-600 hover:text-green-700 py-5 transition duration-150" data-view="roof">Roof Cleaning</button>
+                    <button class="nav-link text-gray-600 hover:text-green-700 py-5 transition duration-150" data-view="mowing">Mowing & Weed Eating</button>
                 </nav>
                 <!-- Mobile Menu Button (Hamburger) -->
                 <button id="mobile-menu-button" class="md:hidden text-gray-600 hover:text-green-700 focus:outline-none">
@@ -57,7 +58,7 @@
                 <button class="nav-link block w-full text-left text-gray-600 hover:bg-gray-50 hover:text-green-700 rounded-md px-3 py-2 text-base font-medium transition duration-150" data-view="home">Home</button>
                 <button class="nav-link block w-full text-left text-gray-600 hover:bg-gray-50 hover:text-green-700 rounded-md px-3 py-2 text-base font-medium transition duration-150" data-view="trimming">Tree & Palm Trimming</button>
                 <button class="nav-link block w-full text-left text-gray-600 hover:bg-gray-50 hover:text-green-700 rounded-md px-3 py-2 text-base font-medium transition duration-150" data-view="planting">Plant Installation</button>
-                <button class="nav-link block w-full text-left text-gray-600 hover:bg-gray-50 hover:text-green-700 rounded-md px-3 py-2 text-base font-medium transition duration-150" data-view="roof">Roof Cleaning</button>
+                <button class="nav-link block w-full text-left text-gray-600 hover:bg-gray-50 hover:text-green-700 rounded-md px-3 py-2 text-base font-medium transition duration-150" data-view="mowing">Mowing & Weed Eating</button>
             </div>
         </div>
     </header>
@@ -70,9 +71,9 @@
     <!-- Footer -->
     <footer class="bg-gray-800 text-white mt-10">
         <div class="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8 text-center">
-            <p>&copy; 2025 BH Green. All rights reserved. | Contact us for a free estimate!</p>
+            <p>&copy; 2025 GH Green. All rights reserved. | Contact us for a free estimate!</p>
             <div class="mt-2 text-sm text-gray-400">
-                510-934-7226 | 510-919-3123 | info@bhgreen.com
+                510-934-7226 | 510-919-3123 | info@ghgreen.com
             </div>
         </div>
     </footer>
@@ -82,7 +83,7 @@
         const services = {
             home: {
                 title: "Your Premier Partner for Outdoor Care",
-                description: "BH Green offers comprehensive outdoor services, ensuring your property looks its absolute best, from the roots of your plants to the top of your roof. Explore our specialized services below.",
+                description: "GH Green offers comprehensive outdoor services, ensuring your property looks its absolute best. Explore our specialized services below.",
                 content: `
                     <div class="text-center">
                         <h2 class="text-4xl font-bold text-gray-800 mb-6">Our Core Services</h2>
@@ -100,15 +101,15 @@
                                 <button class="mt-4 text-green-600 hover:text-green-800 font-medium" onclick="navigateTo('planting')">Learn More &rarr;</button>
                             </div>
                             <div class="p-6 bg-white rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:scale-[1.02]">
-                                <svg class="w-12 h-12 text-green-600 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 3h4M5 21v-4M3 21h4M21 3v4M21 21h-4M12 7v10m-3-3h6"></path></svg>
-                                <h3 class="text-xl font-semibold text-green-700">Roof Cleaning</h3>
-                                <p class="text-gray-600 mt-2">Safe, effective roof cleaning to extend the life and beauty of your roof.</p>
-                                <button class="mt-4 text-green-600 hover:text-green-800 font-medium" onclick="navigateTo('roof')">Learn More &rarr;</button>
+                                <svg class="w-12 h-12 text-green-600 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.348A2.3 2.3 0 009 10v4.832c0 .943 1.05 1.57 1.805.998l3.197-2.348a1.325 1.325 0 000-2.02zm-3.197-2.348l-3.197 2.348A2.3 2.3 0 009 10v4.832c0 .943 1.05 1.57 1.805.998l3.197-2.348a1.325 1.325 0 000-2.02z"></path></svg>
+                                <h3 class="text-xl font-semibold text-green-700">Mowing & Weed Eating</h3>
+                                <p class="text-gray-600 mt-2">Professional lawn care to keep your yard immaculate and weed-free.</p>
+                                <button class="mt-4 text-green-600 hover:text-green-800 font-medium" onclick="navigateTo('mowing')">Learn More &rarr;</button>
                             </div>
                         </div>
                     </div>
                 `,
-                carousel_images: [] // Not used for the Home view
+                carousel_images: []
             },
             trimming: {
                 title: "Tree & Palm Trimming Services",
@@ -116,18 +117,18 @@
                 content: `
                     <div class="p-6 bg-white rounded-lg shadow-xl">
                         <ul class="list-disc list-inside space-y-2 text-gray-700">
-                            <li>Safe, professional tree removal and stump grinding.</li>
+                            <li>Safe, professional **tree removal** and stump grinding.</li>
                             <li>Expert crown reduction and canopy shaping for optimal health.</li>
-                            <li>Palm tree skinning and cleaning for a neat, tropical look.</li>
-                            <li>Emergency storm clean-up services.</li>
+                            <li>**Palm tree skinning** and cleaning for a neat, tropical look.</li>
+                            <li>Hedge trimming and shrub shaping for perfect symmetry.</li>
                         </ul>
                         <button class="mt-6 px-6 py-3 bg-green-600 text-white font-semibold rounded-full hover:bg-green-700 transition duration-300 shadow-md">Get a Trimming Quote</button>
                     </div>
                 `,
                 carousel_images: [
-                    'https://placehold.co/1200x500/065F46/ffffff?text=Professional+Tree+Trimming',
-                    'https://placehold.co/1200x500/059669/ffffff?text=Perfectly+Shaped+Palm+Trees',
-                    'https://placehold.co/1200x500/10B981/ffffff?text=Safety+First%3A+Insured+Work'
+                    'uploaded:tree triming.jpg-d14d0cfe-03f5-46d4-85a4-68692ceab260',
+                    'uploaded:palm-trimming-1.jpg-062bc888-c935-4016-bff3-de12bdecd915',
+                    'uploaded:tree triming.jpeg-6e4db8b4-1352-495e-962e-23003d020a0a',
                 ]
             },
             planting: {
@@ -136,38 +137,39 @@
                 content: `
                     <div class="p-6 bg-white rounded-lg shadow-xl">
                         <ul class="list-disc list-inside space-y-2 text-gray-700">
-                            <li>Custom landscape design and plant selection.</li>
+                            <li>Custom landscape design and **vibrant flower bed** creation.</li>
                             <li>Installation of perennial beds, annuals, shrubs, and hedges.</li>
                             <li>Soil amendment and fertilization for long-term plant health.</li>
-                            <li>Installation of small trees and ornamental grasses.</li>
+                            <li>**Mulch installation** for aesthetic appeal and weed suppression.</li>
                         </ul>
                         <button class="mt-6 px-6 py-3 bg-green-600 text-white font-semibold rounded-full hover:bg-green-700 transition duration-300 shadow-md">Start Your Planting Project</button>
                     </div>
                 `,
                 carousel_images: [
-                    'https://placehold.co/1200x500/65A30D/ffffff?text=Vibrant+Flower+Beds',
-                    'https://placehold.co/1200x500/84CC16/ffffff?text=New+Shrub+Installation',
-                    'https://placehold.co/1200x500/A3E635/ffffff?text=Beautifully+Transformed+Garden'
+                    'https://placehold.co/1200x500/65A30D/ffffff?text=Shrub+and+Mulch+Installation',
+                    'https://placehold.co/1200x500/84CC16/ffffff?text=New+Flower+Beds',
+                    'https://placehold.co/1200x500/A3E635/ffffff?text=Seasonal+Vibrant+Plantings'
                 ]
             },
-            roof: {
-                title: "Gentle & Effective Roof Cleaning",
-                description: "Don't let moss, algae, and grime compromise your roof's integrity. We use low-pressure, safe cleaning methods to remove buildup, restore your roof's appearance, and extend its lifespan without causing damage.",
+            mowing: { // NEW SERVICE ADDED
+                title: "Professional Mowing & Weed Eating",
+                description: "Achieve the perfect lawn with our routine mowing, precise edging, and thorough weed eating services. We focus on manicured results and yard health.",
                 content: `
                     <div class="p-6 bg-white rounded-lg shadow-xl">
                         <ul class="list-disc list-inside space-y-2 text-gray-700">
-                            <li>Soft wash cleaning techniques to prevent damage.</li>
-                            <li>Algae and black streak removal.</li>
-                            <li>Moss and lichen treatment and removal.</li>
-                            <li>Gutter cleaning and debris removal (optional add-on).</li>
+                            <li>Weekly or bi-weekly lawn mowing for a pristine look.</li>
+                            <li>**Detailed weed eating and trimming** along edges and obstacles.</li>
+                            <li>Blowing and debris removal from all hard surfaces (walkways, driveways).</li>
+                            <li>Fertilization and seasonal lawn treatment plans (upon request).</li>
                         </ul>
-                        <button class="mt-6 px-6 py-3 bg-green-600 text-white font-semibold rounded-full hover:bg-green-700 transition duration-300 shadow-md">Book Roof Cleaning</button>
+                        <button class="mt-6 px-6 py-3 bg-green-600 text-white font-semibold rounded-full hover:bg-green-700 transition duration-300 shadow-md">Book Lawn Service</button>
                     </div>
                 `,
                 carousel_images: [
-                    'https://placehold.co/1200x500/1E40AF/ffffff?text=Gentle+Roof+Washing',
-                    'https://placehold.co/1200x500/3B82F6/ffffff?text=Spotless+Tile+Roof',
-                    'https://placehold.co/1200x500/60A5FA/ffffff?text=Removing+Moss+and+Grime'
+                    'https://placehold.co/1200x500/22C55E/ffffff?text=Perfectly+Mowed+Lawn',
+                    'https://placehold.co/1200x500/16A34A/ffffff?text=Detailed+Edging+Service',
+                    'https://placehold.co/1200x500/047857/ffffff?text=Weed+Eating+and+Cleanup',
+                    'https://placehold.co/1200x500/064E3B/ffffff?text=Immaculate+Lawn+Care'
                 ]
             }
         };
@@ -175,7 +177,7 @@
         // --- GLOBAL STATE & CAROUSEL MANAGEMENT ---
         let currentView = 'home';
         let carouselInterval = null;
-        const CAROUSEL_DURATION = 20000; // 20 seconds
+        const CAROUSEL_DURATION = 5000; // 5 seconds per image
         
         /**
          * Clears any existing carousel interval.
@@ -223,6 +225,72 @@
             carouselInterval = setInterval(updateImage, CAROUSEL_DURATION);
         }
 
+        // --- TEMPLATES (HTML structures) ---
+
+        /**
+         * Helper for creating a basic service view structure (trimming, planting, mowing).
+         */
+        const createServiceView = () => {
+            return `
+                <div class="space-y-10">
+                    <section class="bg-white rounded-xl shadow-2xl overflow-hidden">
+                        <div class="relative">
+                            <img id="service-carousel-image" src="" alt="Service Example" 
+                                class="service-image w-full object-cover transition-opacity duration-1000">
+                            <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center p-4">
+                                <div class="text-center">
+                                    <h2 id="view-title" class="text-5xl font-extrabold text-white sm:text-6xl"></h2>
+                                    <p id="view-description" class="mt-4 text-xl text-gray-200 max-w-2xl mx-auto"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                        <div class="lg:col-span-2">
+                            <h3 class="text-3xl font-bold text-green-700 mb-4">Our Commitment</h3>
+                            <p class="text-gray-600 leading-relaxed mb-6">We combine years of experience with the best equipment and eco-friendly practices to deliver results that exceed expectations. Every service is performed with attention to detail and a commitment to your satisfaction.</p>
+                            <div id="dynamic-content-area"></div>
+                        </div>
+                        <aside class="p-6 bg-gray-100 rounded-xl shadow-lg h-fit">
+                            <h3 class="text-2xl font-semibold text-green-700 mb-4 border-b pb-2">Ready for a Quote?</h3>
+                            <p class="text-gray-600 mb-4">Call us today for a detailed, no-obligation estimate!</p>
+                            <a href="tel:5109347226" class="block text-center py-3 bg-green-500 text-white font-bold rounded-lg hover:bg-green-600 transition duration-300">Call (510) 934-7226</a>
+                            <a href="tel:5109193123" class="block text-center mt-3 py-3 bg-green-500 text-white font-bold rounded-lg hover:bg-green-600 transition duration-300">Call (510) 919-3123</a>
+                            
+                            <div class="mt-6 text-sm text-gray-500">
+                                <p>Email us:</p>
+                                <p class="font-mono text-lg text-green-700">info@ghgreen.com</p>
+                            </div>
+                        </aside>
+                    </section>
+                </div>
+            `;
+        };
+
+        /**
+         * Helper for creating the Home view structure.
+         */
+        const createHomeView = () => {
+            return `
+                <div class="space-y-10">
+                    <section class="hero-bg text-center py-20 rounded-xl shadow-2xl">
+                        <h2 id="view-title" class="text-6xl font-extrabold text-white mb-4"></h2>
+                        <p id="view-description" class="text-xl text-gray-200 max-w-3xl mx-auto mb-8"></p>
+                        <div class="space-y-4 max-w-sm mx-auto">
+                            <h3 class="text-2xl font-bold text-white">Call for a Free Estimate</h3>
+                            <a href="tel:5109347226" class="inline-block w-full px-10 py-4 bg-green-500 text-white text-xl font-bold rounded-full hover:bg-green-600 transition duration-300 shadow-lg transform hover:scale-105">510-934-7226</a>
+                            <a href="tel:5109193123" class="inline-block w-full px-10 py-4 bg-green-500 text-white text-xl font-bold rounded-full hover:bg-green-600 transition duration-300 shadow-lg transform hover:scale-105">510-919-3123</a>
+                        </div>
+                    </section>
+
+                    <section class="py-6">
+                        <div id="dynamic-content-area"></div>
+                    </section>
+                </div>
+            `;
+        };
+
         /**
          * Renders the content for the specified view key.
          * @param {string} viewKey - The key of the view to render.
@@ -232,82 +300,29 @@
             const data = services[viewKey];
             const container = document.getElementById('view-container');
             
-            // Generic service view template (used for trimming, planting, roof)
+            // 1. Render the main structure using innerHTML
             if (data.carousel_images.length > 0) {
-                // Template structure with IDs for safer text injection
-                container.innerHTML = `
-                    <div class="space-y-10">
-                        <!-- Hero Section with Carousel -->
-                        <section class="bg-white rounded-xl shadow-2xl overflow-hidden">
-                            <div class="relative">
-                                <img id="service-carousel-image" src="" alt="Service Example" 
-                                     class="service-image w-full object-cover transition-opacity duration-1000">
-                                <!-- Overlay Text -->
-                                <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center p-4">
-                                    <div class="text-center">
-                                        <h2 id="service-title" class="text-5xl font-extrabold text-white sm:text-6xl"></h2>
-                                        <p id="service-description" class="mt-4 text-xl text-gray-200 max-w-2xl mx-auto"></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
-
-                        <!-- Detailed Content -->
-                        <section class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                            <div class="lg:col-span-2">
-                                <h3 class="text-3xl font-bold text-green-700 mb-4">Our Commitment</h3>
-                                <p class="text-gray-600 leading-relaxed mb-6">We combine years of experience with the best equipment and eco-friendly practices to deliver results that exceed expectations. Every service is performed with attention to detail and a commitment to your satisfaction.</p>
-                                <div id="service-content-injection"></div>
-                            </div>
-                            <!-- Sidebar/Contact -->
-                            <aside class="p-6 bg-gray-100 rounded-xl shadow-lg h-fit">
-                                <h3 class="text-2xl font-semibold text-green-700 mb-4 border-b pb-2">Ready for a Quote?</h3>
-                                <p class="text-gray-600 mb-4">Click below to tell us about your project and we'll get back to you with a detailed, no-obligation estimate.</p>
-                                <a href="#" class="block text-center py-3 bg-green-500 text-white font-bold rounded-lg hover:bg-green-600 transition duration-300">Request Service Today</a>
-                                <div class="mt-6 text-sm text-gray-500">
-                                    <p>Or call us directly:</p>
-                                    <p class="font-mono text-lg text-green-700">510-934-7226</p>
-                                    <p class="font-mono text-lg text-green-700">510-919-3123</p>
-                                </div>
-                            </aside>
-                        </section>
-                    </div>
-                `;
-
-                // Securely inject text content using textContent
-                document.getElementById('service-title').textContent = data.title;
-                document.getElementById('service-description').textContent = data.description;
-                // Inject static HTML for content block
-                document.getElementById('service-content-injection').innerHTML = data.content;
-
-
+                container.innerHTML = createServiceView();
                 initCarousel(viewKey);
-            } 
-            
-            // Home view template
-            else {
+            } else {
                 clearCarousel();
-                // Template structure with IDs for safer text injection
-                container.innerHTML = `
-                    <div class="space-y-10">
-                        <!-- Hero Section for Home -->
-                        <section class="hero-bg text-center py-20 rounded-xl shadow-2xl">
-                            <h2 id="home-title" class="text-6xl font-extrabold text-white mb-4"></h2>
-                            <p id="home-description" class="text-xl text-gray-200 max-w-3xl mx-auto mb-8"></p>
-                            <a href="#" class="inline-block px-10 py-4 bg-green-500 text-white text-xl font-bold rounded-full hover:bg-green-600 transition duration-300 shadow-lg transform hover:scale-105">Get Your Free Estimate</a>
-                        </section>
-
-                        <!-- Services Grid -->
-                        <section id="home-content" class="py-6"></section>
-                    </div>
-                `;
-                
-                // Securely inject text content using textContent
-                document.getElementById('home-title').textContent = data.title;
-                document.getElementById('home-description').textContent = data.description;
-                // Inject static HTML for content block
-                document.getElementById('home-content').innerHTML = data.content;
+                container.innerHTML = createHomeView();
             }
+
+            // 2. Insert dynamic content safely using DOM methods
+
+            // Set Titles and Descriptions using textContent 
+            const titleEl = document.getElementById('view-title');
+            const descEl = document.getElementById('view-description');
+
+            if (titleEl) titleEl.textContent = data.title;
+            if (descEl) descEl.textContent = data.description;
+            
+            // Insert complex, *trusted* HTML content 
+            const contentArea = document.getElementById('dynamic-content-area');
+            // We use innerHTML here as the 'content' contains trusted HTML markup (divs, uls, buttons)
+            if (contentArea) contentArea.innerHTML = data.content;
+            
 
             // Update navigation active state
             updateNav();
@@ -333,8 +348,6 @@
          * @param {string} viewKey - The key of the view to navigate to.
          */
         function navigateTo(viewKey) {
-            // Prevent immediate navigation while carousel is transitioning (optional guard)
-            // But since this is a full page render, we just navigate.
             renderView(viewKey);
             // Scroll to the top of the main content
             window.scrollTo({ top: 0, behavior: 'smooth' });
