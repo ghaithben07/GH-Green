@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BH Green - Premium Yard Work & Roof Cleaning</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles for professional look and feel */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7fbf8; /* Light, natural background */
+        }
+        .nav-link.active {
+            border-bottom: 3px solid #10b981; /* Emerald 500 */
+            color: #047857; /* Emerald 700 */
+        }
+        .service-image {
+            transition: opacity 1s ease-in-out;
+            max-height: 500px;
+            object-fit: cover;
+        }
+        .hero-bg {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://placehold.co/1200x600/10B981/ffffff?text=Professional+Green+Services');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header & Navigation -->
+    <header class="shadow-lg bg-white sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0">
+                    <h1 class="text-3xl font-extrabold text-green-700">BH Green</h1>
+                    <p class="text-sm text-gray-500 hidden sm:block">Sustainable Solutions, Exceptional Results</p>
+                </div>
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex space-x-8 text-lg font-medium">
+                    <button class="nav-link text-gray-600 hover:text-green-700 py-5 transition duration-150" data-view="home">Home</button>
+                    <button class="nav-link text-gray-600 hover:text-green-700 py-5 transition duration-150" data-view="trimming">Tree & Palm Trimming</button>
+                    <button class="nav-link text-gray-600 hover:text-green-700 py-5 transition duration-150" data-view="planting">Plant Installation</button>
+                    <button class="nav-link text-gray-600 hover:text-green-700 py-5 transition duration-150" data-view="roof">Roof Cleaning</button>
+                </nav>
+                <!-- Mobile Menu Button (Hamburger) -->
+                <button id="mobile-menu-button" class="md:hidden text-gray-600 hover:text-green-700 focus:outline-none">
+                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden shadow-lg">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <button class="nav-link block w-full text-left text-gray-600 hover:bg-gray-50 hover:text-green-700 rounded-md px-3 py-2 text-base font-medium transition duration-150" data-view="home">Home</button>
+                <button class="nav-link block w-full text-left text-gray-600 hover:bg-gray-50 hover:text-green-700 rounded-md px-3 py-2 text-base font-medium transition duration-150" data-view="trimming">Tree & Palm Trimming</button>
+                <button class="nav-link block w-full text-left text-gray-600 hover:bg-gray-50 hover:text-green-700 rounded-md px-3 py-2 text-base font-medium transition duration-150" data-view="planting">Plant Installation</button>
+                <button class="nav-link block w-full text-left text-gray-600 hover:bg-gray-50 hover:text-green-700 rounded-md px-3 py-2 text-base font-medium transition duration-150" data-view="roof">Roof Cleaning</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area - View Container -->
+    <main id="view-container" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        <!-- Views will be dynamically inserted here -->
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white mt-10">
+        <div class="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8 text-center">
+            <p>&copy; 2025 BH Green. All rights reserved. | Contact us for a free estimate!</p>
+            <div class="mt-2 text-sm text-gray-400">
+                510-934-7226 | 510-919-3123 | info@bhgreen.com
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // --- DATA STRUCTURE FOR SERVICES ---
+        const services = {
+            home: {
+                title: "Your Premier Partner for Outdoor Care",
+                description: "BH Green offers comprehensive outdoor services, ensuring your property looks its absolute best, from the roots of your plants to the top of your roof. Explore our specialized services below.",
+                content: `
+                    <div class="text-center">
+                        <h2 class="text-4xl font-bold text-gray-800 mb-6">Our Core Services</h2>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                            <div class="p-6 bg-white rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:scale-[1.02]">
+                                <svg class="w-12 h-12 text-green-600 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10V9a2 2 0 00-2-2m0 0a2 2 0 00-2 2v1m4 0h-4m4 0l-1 9a2 2 0 01-2 2h-2a2 2 0 01-2-2l-1-9m7 0a2 2 0 01-2 2h-4"></path></svg>
+                                <h3 class="text-xl font-semibold text-green-700">Trimming Experts</h3>
+                                <p class="text-gray-600 mt-2">Professional tree and palm trimming for safety, aesthetics, and health.</p>
+                                <button class="mt-4 text-green-600 hover:text-green-800 font-medium" onclick="navigateTo('trimming')">Learn More &rarr;</button>
+                            </div>
+                            <div class="p-6 bg-white rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:scale-[1.02]">
+                                <svg class="w-12 h-12 text-green-600 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 13h6m-3-3v6m-9 1V7a2 2 0 012-2h10a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2z"></path></svg>
+                                <h3 class="text-xl font-semibold text-green-700">Lush Plantings</h3>
+                                <p class="text-gray-600 mt-2">Expert plant installation to transform your landscape vision into reality.</p>
+                                <button class="mt-4 text-green-600 hover:text-green-800 font-medium" onclick="navigateTo('planting')">Learn More &rarr;</button>
+                            </div>
+                            <div class="p-6 bg-white rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:scale-[1.02]">
+                                <svg class="w-12 h-12 text-green-600 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 3h4M5 21v-4M3 21h4M21 3v4M21 21h-4M12 7v10m-3-3h6"></path></svg>
+                                <h3 class="text-xl font-semibold text-green-700">Roof Cleaning</h3>
+                                <p class="text-gray-600 mt-2">Safe, effective roof cleaning to extend the life and beauty of your roof.</p>
+                                <button class="mt-4 text-green-600 hover:text-green-800 font-medium" onclick="navigateTo('roof')">Learn More &rarr;</button>
+                            </div>
+                        </div>
+                    </div>
+                `,
+                carousel_images: [] // Not used for the Home view
+            },
+            trimming: {
+                title: "Tree & Palm Trimming Services",
+                description: "Our certified team provides meticulous trimming, pruning, and removal services. We specialize in enhancing the shape and health of your trees and palms while prioritizing safety and property protection.",
+                content: `
+                    <div class="p-6 bg-white rounded-lg shadow-xl">
+                        <ul class="list-disc list-inside space-y-2 text-gray-700">
+                            <li>Safe, professional tree removal and stump grinding.</li>
+                            <li>Expert crown reduction and canopy shaping for optimal health.</li>
+                            <li>Palm tree skinning and cleaning for a neat, tropical look.</li>
+                            <li>Emergency storm clean-up services.</li>
+                        </ul>
+                        <button class="mt-6 px-6 py-3 bg-green-600 text-white font-semibold rounded-full hover:bg-green-700 transition duration-300 shadow-md">Get a Trimming Quote</button>
+                    </div>
+                `,
+                carousel_images: [
+                    'https://placehold.co/1200x500/065F46/ffffff?text=Professional+Tree+Trimming',
+                    'https://placehold.co/1200x500/059669/ffffff?text=Perfectly+Shaped+Palm+Trees',
+                    'https://placehold.co/1200x500/10B981/ffffff?text=Safety+First%3A+Insured+Work'
+                ]
+            },
+            planting: {
+                title: "Plant Installation & Landscaping",
+                description: "Whether you need a full landscape overhaul or simply wish to add vibrant new flowers and shrubs, we handle the entire planting process. We select plants that thrive in your local climate and soil conditions.",
+                content: `
+                    <div class="p-6 bg-white rounded-lg shadow-xl">
+                        <ul class="list-disc list-inside space-y-2 text-gray-700">
+                            <li>Custom landscape design and plant selection.</li>
+                            <li>Installation of perennial beds, annuals, shrubs, and hedges.</li>
+                            <li>Soil amendment and fertilization for long-term plant health.</li>
+                            <li>Installation of small trees and ornamental grasses.</li>
+                        </ul>
+                        <button class="mt-6 px-6 py-3 bg-green-600 text-white font-semibold rounded-full hover:bg-green-700 transition duration-300 shadow-md">Start Your Planting Project</button>
+                    </div>
+                `,
+                carousel_images: [
+                    'https://placehold.co/1200x500/65A30D/ffffff?text=Vibrant+Flower+Beds',
+                    'https://placehold.co/1200x500/84CC16/ffffff?text=New+Shrub+Installation',
+                    'https://placehold.co/1200x500/A3E635/ffffff?text=Beautifully+Transformed+Garden'
+                ]
+            },
+            roof: {
+                title: "Gentle & Effective Roof Cleaning",
+                description: "Don't let moss, algae, and grime compromise your roof's integrity. We use low-pressure, safe cleaning methods to remove buildup, restore your roof's appearance, and extend its lifespan without causing damage.",
+                content: `
+                    <div class="p-6 bg-white rounded-lg shadow-xl">
+                        <ul class="list-disc list-inside space-y-2 text-gray-700">
+                            <li>Soft wash cleaning techniques to prevent damage.</li>
+                            <li>Algae and black streak removal.</li>
+                            <li>Moss and lichen treatment and removal.</li>
+                            <li>Gutter cleaning and debris removal (optional add-on).</li>
+                        </ul>
+                        <button class="mt-6 px-6 py-3 bg-green-600 text-white font-semibold rounded-full hover:bg-green-700 transition duration-300 shadow-md">Book Roof Cleaning</button>
+                    </div>
+                `,
+                carousel_images: [
+                    'https://placehold.co/1200x500/1E40AF/ffffff?text=Gentle+Roof+Washing',
+                    'https://placehold.co/1200x500/3B82F6/ffffff?text=Spotless+Tile+Roof',
+                    'https://placehold.co/1200x500/60A5FA/ffffff?text=Removing+Moss+and+Grime'
+                ]
+            }
+        };
+
+        // --- GLOBAL STATE & CAROUSEL MANAGEMENT ---
+        let currentView = 'home';
+        let carouselInterval = null;
+        const CAROUSEL_DURATION = 20000; // 20 seconds
+        
+        /**
+         * Clears any existing carousel interval.
+         */
+        function clearCarousel() {
+            if (carouselInterval) {
+                clearInterval(carouselInterval);
+                carouselInterval = null;
+            }
+        }
+
+        /**
+         * Initializes and manages the image carousel for a service view.
+         * @param {string} viewKey - The key of the current service view.
+         */
+        function initCarousel(viewKey) {
+            clearCarousel();
+
+            const serviceData = services[viewKey];
+            if (!serviceData || serviceData.carousel_images.length === 0) return;
+
+            const imageElement = document.getElementById('service-carousel-image');
+            if (!imageElement) return;
+
+            let currentIndex = 0;
+            const images = serviceData.carousel_images;
+
+            /**
+             * Updates the image in the carousel with a fade effect.
+             */
+            const updateImage = () => {
+                imageElement.style.opacity = '0'; // Fade out
+                setTimeout(() => {
+                    currentIndex = (currentIndex + 1) % images.length;
+                    imageElement.src = images[currentIndex];
+                    imageElement.style.opacity = '1'; // Fade in
+                }, 1000); // Wait for the 1s transition before changing source
+            };
+
+            // Set initial image
+            imageElement.src = images[currentIndex];
+            imageElement.style.opacity = '1';
+
+            // Start the interval
+            carouselInterval = setInterval(updateImage, CAROUSEL_DURATION);
+        }
+
+        /**
+         * Renders the content for the specified view key.
+         * @param {string} viewKey - The key of the view to render.
+         */
+        function renderView(viewKey) {
+            currentView = viewKey;
+            const data = services[viewKey];
+            const container = document.getElementById('view-container');
+            
+            // Generic service view template (used for trimming, planting, roof)
+            if (data.carousel_images.length > 0) {
+                // Template structure with IDs for safer text injection
+                container.innerHTML = `
+                    <div class="space-y-10">
+                        <!-- Hero Section with Carousel -->
+                        <section class="bg-white rounded-xl shadow-2xl overflow-hidden">
+                            <div class="relative">
+                                <img id="service-carousel-image" src="" alt="Service Example" 
+                                     class="service-image w-full object-cover transition-opacity duration-1000">
+                                <!-- Overlay Text -->
+                                <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center p-4">
+                                    <div class="text-center">
+                                        <h2 id="service-title" class="text-5xl font-extrabold text-white sm:text-6xl"></h2>
+                                        <p id="service-description" class="mt-4 text-xl text-gray-200 max-w-2xl mx-auto"></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Detailed Content -->
+                        <section class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                            <div class="lg:col-span-2">
+                                <h3 class="text-3xl font-bold text-green-700 mb-4">Our Commitment</h3>
+                                <p class="text-gray-600 leading-relaxed mb-6">We combine years of experience with the best equipment and eco-friendly practices to deliver results that exceed expectations. Every service is performed with attention to detail and a commitment to your satisfaction.</p>
+                                <div id="service-content-injection"></div>
+                            </div>
+                            <!-- Sidebar/Contact -->
+                            <aside class="p-6 bg-gray-100 rounded-xl shadow-lg h-fit">
+                                <h3 class="text-2xl font-semibold text-green-700 mb-4 border-b pb-2">Ready for a Quote?</h3>
+                                <p class="text-gray-600 mb-4">Click below to tell us about your project and we'll get back to you with a detailed, no-obligation estimate.</p>
+                                <a href="#" class="block text-center py-3 bg-green-500 text-white font-bold rounded-lg hover:bg-green-600 transition duration-300">Request Service Today</a>
+                                <div class="mt-6 text-sm text-gray-500">
+                                    <p>Or call us directly:</p>
+                                    <p class="font-mono text-lg text-green-700">510-934-7226</p>
+                                    <p class="font-mono text-lg text-green-700">510-919-3123</p>
+                                </div>
+                            </aside>
+                        </section>
+                    </div>
+                `;
+
+                // Securely inject text content using textContent
+                document.getElementById('service-title').textContent = data.title;
+                document.getElementById('service-description').textContent = data.description;
+                // Inject static HTML for content block
+                document.getElementById('service-content-injection').innerHTML = data.content;
+
+
+                initCarousel(viewKey);
+            } 
+            
+            // Home view template
+            else {
+                clearCarousel();
+                // Template structure with IDs for safer text injection
+                container.innerHTML = `
+                    <div class="space-y-10">
+                        <!-- Hero Section for Home -->
+                        <section class="hero-bg text-center py-20 rounded-xl shadow-2xl">
+                            <h2 id="home-title" class="text-6xl font-extrabold text-white mb-4"></h2>
+                            <p id="home-description" class="text-xl text-gray-200 max-w-3xl mx-auto mb-8"></p>
+                            <a href="#" class="inline-block px-10 py-4 bg-green-500 text-white text-xl font-bold rounded-full hover:bg-green-600 transition duration-300 shadow-lg transform hover:scale-105">Get Your Free Estimate</a>
+                        </section>
+
+                        <!-- Services Grid -->
+                        <section id="home-content" class="py-6"></section>
+                    </div>
+                `;
+                
+                // Securely inject text content using textContent
+                document.getElementById('home-title').textContent = data.title;
+                document.getElementById('home-description').textContent = data.description;
+                // Inject static HTML for content block
+                document.getElementById('home-content').innerHTML = data.content;
+            }
+
+            // Update navigation active state
+            updateNav();
+        }
+
+        /**
+         * Updates the active class on navigation links.
+         */
+        function updateNav() {
+            document.querySelectorAll('.nav-link').forEach(link => {
+                if (link.dataset.view === currentView) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+            // Close mobile menu after navigation
+            document.getElementById('mobile-menu').classList.add('hidden');
+        }
+
+        /**
+         * Handles navigation logic.
+         * @param {string} viewKey - The key of the view to navigate to.
+         */
+        function navigateTo(viewKey) {
+            // Prevent immediate navigation while carousel is transitioning (optional guard)
+            // But since this is a full page render, we just navigate.
+            renderView(viewKey);
+            // Scroll to the top of the main content
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // --- EVENT LISTENERS ---
+
+        // 1. Navigation Button Listeners
+        document.querySelectorAll('.nav-link').forEach(button => {
+            button.addEventListener('click', (e) => {
+                const viewKey = e.currentTarget.dataset.view;
+                navigateTo(viewKey);
+            });
+        });
+
+        // 2. Mobile Menu Toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', () => {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        // 3. Initial Load
+        window.onload = () => {
+            renderView('home'); // Start on the home page
+        };
+    </script>
+
+</body>
+</html>
