@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GH Green - Premium Yard Work & Landscaping</title>
-    <!-- Load Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body {
@@ -21,275 +20,215 @@
             object-fit: cover;
         }
         .hero-bg {
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://placehold.co/1200x600/10B981/ffffff?text=Professional+Green+Services');
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                        url('https://placehold.co/1200x600/10B981/ffffff?text=Professional+Green+Services');
             background-size: cover;
             background-position: center;
         }
     </style>
 </head>
 <body>
-    <!-- Header & Navigation -->
-    <header class="shadow-lg bg-white sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
-                <div class="flex-shrink-0">
-                    <h1 class="text-3xl font-extrabold text-green-700">GH Green</h1>
-                    <p class="text-sm text-gray-500 hidden sm:block">Sustainable Solutions, Exceptional Results</p>
+
+<header class="shadow-lg bg-white sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-20">
+            <div class="flex-shrink-0">
+                <h1 class="text-3xl font-extrabold text-green-700">GH Green</h1>
+                <p class="text-sm text-gray-500 hidden sm:block">Sustainable Solutions, Exceptional Results</p>
+            </div>
+            <nav class="hidden md:flex space-x-8 text-lg font-medium">
+                <button class="nav-link text-gray-600 hover:text-green-700 py-5 transition duration-150" data-view="home">Home</button>
+                <button class="nav-link text-gray-600 hover:text-green-700 py-5 transition duration-150" data-view="trimming">Tree & Palm Trimming</button>
+            </nav>
+            <button id="mobile-menu-button" class="md:hidden text-gray-600 hover:text-green-700 focus:outline-none">
+                <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+        </div>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden shadow-lg">
+        <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+            <button class="nav-link block w-full text-left text-gray-600 hover:bg-gray-50 hover:text-green-700 rounded-md px-3 py-2 text-base font-medium transition duration-150" data-view="home">Home</button>
+            <button class="nav-link block w-full text-left text-gray-600 hover:bg-gray-50 hover:text-green-700 rounded-md px-3 py-2 text-base font-medium transition duration-150" data-view="trimming">Tree & Palm Trimming</button>
+        </div>
+    </div>
+</header>
+
+<main id="view-container" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10"></main>
+
+<footer class="bg-gray-800 text-white mt-10">
+    <div class="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8 text-center">
+        <p>&copy; 2025 GH Green. All rights reserved. | Contact us for a free estimate!</p>
+        <div class="mt-2 text-sm text-gray-400">
+            510-934-7226 | 510-919-3123 | info@ghgreen.com
+        </div>
+    </div>
+</footer>
+
+<script>
+const services = {
+    home: {
+        title: "Your Premier Partner for Outdoor Care",
+        description: "GH Green offers comprehensive outdoor services, ensuring your property looks its absolute best.",
+        content: `
+            <div class="text-center">
+                <h2 class="text-4xl font-bold text-gray-800 mb-6">Our Core Services</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="p-6 bg-white rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:scale-[1.02]">
+                        <h3 class="text-xl font-semibold text-green-700">Trimming Experts</h3>
+                        <p class="text-gray-600 mt-2">Professional tree and palm trimming for safety, aesthetics, and health.</p>
+                        <button class="mt-4 text-green-600 hover:text-green-800 font-medium" onclick="navigateTo('trimming')">Learn More &rarr;</button>
+                    </div>
                 </div>
-                <nav class="hidden md:flex space-x-8 text-lg font-medium">
-                    <button class="nav-link text-gray-600 hover:text-green-700 py-5 transition duration-150" data-view="home">Home</button>
-                    <button class="nav-link text-gray-600 hover:text-green-700 py-5 transition duration-150" data-view="trimming">Tree & Palm Trimming</button>
-                    <button class="nav-link text-gray-600 hover:text-green-700 py-5 transition duration-150" data-view="planting">Plant Installation</button>
-                    <button class="nav-link text-gray-600 hover:text-green-700 py-5 transition duration-150" data-view="mowing">Mowing & Weed Eating</button>
-                </nav>
-                <button id="mobile-menu-button" class="md:hidden text-gray-600 hover:text-green-700 focus:outline-none">
-                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-                    </svg>
-                </button>
             </div>
-        </div>
-        <div id="mobile-menu" class="hidden md:hidden shadow-lg">
-            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <button class="nav-link block w-full text-left text-gray-600 hover:bg-gray-50 hover:text-green-700 rounded-md px-3 py-2 text-base font-medium transition duration-150" data-view="home">Home</button>
-                <button class="nav-link block w-full text-left text-gray-600 hover:bg-gray-50 hover:text-green-700 rounded-md px-3 py-2 text-base font-medium transition duration-150" data-view="trimming">Tree & Palm Trimming</button>
-                <button class="nav-link block w-full text-left text-gray-600 hover:bg-gray-50 hover:text-green-700 rounded-md px-3 py-2 text-base font-medium transition duration-150" data-view="planting">Plant Installation</button>
-                <button class="nav-link block w-full text-left text-gray-600 hover:bg-gray-50 hover:text-green-700 rounded-md px-3 py-2 text-base font-medium transition duration-150" data-view="mowing">Mowing & Weed Eating</button>
+        `,
+        carousel_images: []
+    },
+    trimming: {
+        title: "Tree & Palm Trimming Services",
+        description: "Our certified team provides meticulous trimming, pruning, and removal services.",
+        content: `
+            <div class="p-6 bg-white rounded-lg shadow-xl">
+                <ul class="list-disc list-inside space-y-2 text-gray-700">
+                    <li>Safe, professional tree removal and stump grinding.</li>
+                    <li>Expert crown reduction and canopy shaping for optimal health.</li>
+                    <li>Palm tree skinning and cleaning for a neat, tropical look.</li>
+                </ul>
+                <button class="mt-6 px-6 py-3 bg-green-600 text-white font-semibold rounded-full hover:bg-green-700 transition duration-300 shadow-md">Get a Trimming Quote</button>
             </div>
-        </div>
-    </header>
+        `,
+        carousel_images: [
+            'https://raw.githubusercontent.com/ghaithben07/GH-Green/main/tree%20triming.jpg',
+            'https://raw.githubusercontent.com/ghaithben07/GH-Green/main/palm-trimming-1.jpg',
+            'https://raw.githubusercontent.com/ghaithben07/GH-Green/main/tree%20triming.jpeg'
+        ]
+    }
+};
 
-    <!-- Main Content -->
-    <main id="view-container" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10"></main>
+let currentView = 'home';
+let carouselInterval = null;
+const CAROUSEL_DURATION = 5000;
 
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-white mt-10">
-        <div class="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8 text-center">
-            <p>&copy; 2025 GH Green. All rights reserved. | Contact us for a free estimate!</p>
-            <div class="mt-2 text-sm text-gray-400">
-                510-934-7226 | 510-919-3123 | info@ghgreen.com
-            </div>
-        </div>
-    </footer>
+function clearCarousel() {
+    if (carouselInterval) {
+        clearInterval(carouselInterval);
+        carouselInterval = null;
+    }
+}
 
-    <script>
-        const services = {
-            home: {
-                title: "Your Premier Partner for Outdoor Care",
-                description: "GH Green offers comprehensive outdoor services, ensuring your property looks its absolute best.",
-                content: `
-                    <div class="text-center">
-                        <h2 class="text-4xl font-bold text-gray-800 mb-6">Our Core Services</h2>
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                            <div class="p-6 bg-white rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:scale-[1.02]">
-                                <h3 class="text-xl font-semibold text-green-700">Trimming Experts</h3>
-                                <p class="text-gray-600 mt-2">Professional tree and palm trimming for safety, aesthetics, and health.</p>
-                                <button class="mt-4 text-green-600 hover:text-green-800 font-medium" onclick="navigateTo('trimming')">Learn More &rarr;</button>
-                            </div>
-                            <div class="p-6 bg-white rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:scale-[1.02]">
-                                <h3 class="text-xl font-semibold text-green-700">Lush Plantings</h3>
-                                <p class="text-gray-600 mt-2">Expert plant installation to transform your landscape vision into reality.</p>
-                                <button class="mt-4 text-green-600 hover:text-green-800 font-medium" onclick="navigateTo('planting')">Learn More &rarr;</button>
-                            </div>
-                            <div class="p-6 bg-white rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:scale-[1.02]">
-                                <h3 class="text-xl font-semibold text-green-700">Mowing & Weed Eating</h3>
-                                <p class="text-gray-600 mt-2">Professional lawn care to keep your yard immaculate and weed-free.</p>
-                                <button class="mt-4 text-green-600 hover:text-green-800 font-medium" onclick="navigateTo('mowing')">Learn More &rarr;</button>
-                            </div>
-                        </div>
-                    </div>
-                `,
-                carousel_images: []
-            },
-            trimming: {
-                title: "Tree & Palm Trimming Services",
-                description: "Enhancing the shape and health of your trees and palms while prioritizing safety.",
-                content: `
-                    <div class="p-6 bg-white rounded-lg shadow-xl">
-                        <ul class="list-disc list-inside space-y-2 text-gray-700">
-                            <li>Safe, professional tree removal and stump grinding.</li>
-                            <li>Expert crown reduction and canopy shaping.</li>
-                            <li>Palm tree skinning and cleaning.</li>
-                            <li>Hedge trimming and shrub shaping.</li>
-                        </ul>
-                        <button class="mt-6 px-6 py-3 bg-green-600 text-white font-semibold rounded-full hover:bg-green-700 transition duration-300 shadow-md">Get a Trimming Quote</button>
-                    </div>
-                `,
-                carousel_images: [
-                    'https://raw.githubusercontent.com/ghaithben07/GH-Green/main/tree-trimming.jpg',
-                    'https://raw.githubusercontent.com/ghaithben07/GH-Green/main/palm-trimming-1.jpg',
-                    'https://raw.githubusercontent.com/ghaithben07/GH-Green/main/tree-trimming-2.jpg'
-                ]
-            },
-            planting: {
-                title: "Plant Installation & Landscaping",
-                description: "We handle the entire planting process to transform your landscape vision into reality.",
-                content: `
-                    <div class="p-6 bg-white rounded-lg shadow-xl">
-                        <ul class="list-disc list-inside space-y-2 text-gray-700">
-                            <li>Custom landscape design and vibrant flower bed creation.</li>
-                            <li>Installation of perennial beds, annuals, shrubs, and hedges.</li>
-                            <li>Soil amendment and fertilization for long-term plant health.</li>
-                            <li>Mulch installation for aesthetic appeal and weed suppression.</li>
-                        </ul>
-                        <button class="mt-6 px-6 py-3 bg-green-600 text-white font-semibold rounded-full hover:bg-green-700 transition duration-300 shadow-md">Start Your Planting Project</button>
-                    </div>
-                `,
-                carousel_images: [
-                    'https://raw.githubusercontent.com/ghaithben07/GH-Green/main/shrub-installation.jpg',
-                    'https://raw.githubusercontent.com/ghaithben07/GH-Green/main/flower-beds.jpg',
-                    'https://raw.githubusercontent.com/ghaithben07/GH-Green/main/vibrant-plantings.jpg'
-                ]
-            },
-            mowing: {
-                title: "Professional Mowing & Weed Eating",
-                description: "Routine mowing, precise edging, and thorough weed eating services.",
-                content: `
-                    <div class="p-6 bg-white rounded-lg shadow-xl">
-                        <ul class="list-disc list-inside space-y-2 text-gray-700">
-                            <li>Weekly or bi-weekly lawn mowing for a pristine look.</li>
-                            <li>Detailed weed eating and trimming along edges and obstacles.</li>
-                            <li>Blowing and debris removal from hard surfaces.</li>
-                            <li>Fertilization and seasonal lawn treatment plans.</li>
-                        </ul>
-                        <button class="mt-6 px-6 py-3 bg-green-600 text-white font-semibold rounded-full hover:bg-green-700 transition duration-300 shadow-md">Book Lawn Service</button>
-                    </div>
-                `,
-                carousel_images: [
-                    'https://raw.githubusercontent.com/ghaithben07/GH-Green/main/mowed-lawn.jpg',
-                    'https://raw.githubusercontent.com/ghaithben07/GH-Green/main/edging.jpg',
-                    'https://raw.githubusercontent.com/ghaithben07/GH-Green/main/weed-cleanup.jpg'
-                ]
-            }
-        };
+function initCarousel(viewKey) {
+    clearCarousel();
+    const serviceData = services[viewKey];
+    if (!serviceData || serviceData.carousel_images.length === 0) return;
 
-        let currentView = 'home';
-        let carouselInterval = null;
-        const CAROUSEL_DURATION = 5000;
+    const imageElement = document.getElementById('service-carousel-image');
+    if (!imageElement) return;
 
-        function clearCarousel() {
-            if (carouselInterval) clearInterval(carouselInterval);
-            carouselInterval = null;
-        }
+    let currentIndex = 0;
+    const images = serviceData.carousel_images;
 
-        function initCarousel(viewKey) {
-            clearCarousel();
-            const serviceData = services[viewKey];
-            if (!serviceData || serviceData.carousel_images.length === 0) return;
-
-            const imageElement = document.getElementById('service-carousel-image');
-            if (!imageElement) return;
-
-            let currentIndex = 0;
-            const images = serviceData.carousel_images;
-
-            const updateImage = () => {
-                imageElement.style.opacity = '0';
-                setTimeout(() => {
-                    currentIndex = (currentIndex + 1) % images.length;
-                    imageElement.src = images[currentIndex];
-                    imageElement.style.opacity = '1';
-                }, 1000);
-            };
-
+    const updateImage = () => {
+        imageElement.style.opacity = '0';
+        setTimeout(() => {
+            currentIndex = (currentIndex + 1) % images.length;
             imageElement.src = images[currentIndex];
             imageElement.style.opacity = '1';
-            carouselInterval = setInterval(updateImage, CAROUSEL_DURATION);
-        }
+        }, 500);
+    };
 
-        function createServiceView() {
-            return `
-                <div class="space-y-10">
-                    <section class="bg-white rounded-xl shadow-2xl overflow-hidden">
-                        <div class="relative">
-                            <img id="service-carousel-image" src="" alt="Service Example" class="service-image w-full object-cover transition-opacity duration-1000">
-                            <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center p-4">
-                                <div class="text-center">
-                                    <h2 id="view-title" class="text-5xl font-extrabold text-white sm:text-6xl"></h2>
-                                    <p id="view-description" class="mt-4 text-xl text-gray-200 max-w-2xl mx-auto"></p>
-                                </div>
-                            </div>
+    imageElement.src = images[currentIndex];
+    imageElement.style.opacity = '1';
+    carouselInterval = setInterval(updateImage, CAROUSEL_DURATION);
+}
+
+function createServiceView() {
+    return `
+        <div class="space-y-10">
+            <section class="bg-white rounded-xl shadow-2xl overflow-hidden">
+                <div class="relative">
+                    <img id="service-carousel-image" src="" alt="Service Example" class="service-image w-full object-cover transition-opacity duration-1000">
+                    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center p-4">
+                        <div class="text-center">
+                            <h2 id="view-title" class="text-5xl font-extrabold text-white sm:text-6xl"></h2>
+                            <p id="view-description" class="mt-4 text-xl text-gray-200 max-w-2xl mx-auto"></p>
                         </div>
-                    </section>
-                    <section class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                        <div class="lg:col-span-2">
-                            <div id="dynamic-content-area"></div>
-                        </div>
-                    </section>
+                    </div>
                 </div>
-            `;
-        }
-
-        function createHomeView() {
-            return `
-                <div class="space-y-10">
-                    <section class="hero-bg text-center py-20 rounded-xl shadow-2xl">
-                        <h2 id="view-title" class="text-6xl font-extrabold text-white mb-4"></h2>
-                        <p id="view-description" class="text-xl text-gray-200 max-w-3xl mx-auto mb-8"></p>
-                    </section>
-                    <section class="py-6">
-                        <div id="dynamic-content-area"></div>
-                    </section>
+            </section>
+            <section class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="lg:col-span-2">
+                    <div id="dynamic-content-area"></div>
                 </div>
-            `;
-        }
+            </section>
+        </div>
+    `;
+}
 
-        function renderView(viewKey) {
-            currentView = viewKey;
-            const data = services[viewKey];
-            const container = document.getElementById('view-container');
-            if (data.carousel_images.length > 0) {
-                container.innerHTML = createServiceView();
-                initCarousel(viewKey);
-            } else {
-                clearCarousel();
-                container.innerHTML = createHomeView();
-            }
+function createHomeView() {
+    return `
+        <div class="space-y-10">
+            <section class="hero-bg text-center py-20 rounded-xl shadow-2xl">
+                <h2 id="view-title" class="text-6xl font-extrabold text-white mb-4"></h2>
+                <p id="view-description" class="text-xl text-gray-200 max-w-3xl mx-auto mb-8"></p>
+            </section>
+            <section class="py-6">
+                <div id="dynamic-content-area"></div>
+            </section>
+        </div>
+    `;
+}
 
-            const titleEl = document.getElementById('view-title');
-            const descEl = document.getElementById('view-description');
-            if (titleEl) titleEl.textContent = data.title;
-            if (descEl) descEl.textContent = data.description;
+function renderView(viewKey) {
+    currentView = viewKey;
+    const data = services[viewKey];
+    const container = document.getElementById('view-container');
 
-            const contentArea = document.getElementById('dynamic-content-area');
-            if (contentArea) contentArea.innerHTML = data.content;
+    if (data.carousel_images.length > 0) {
+        container.innerHTML = createServiceView();
+        initCarousel(viewKey);
+    } else {
+        clearCarousel();
+        container.innerHTML = createHomeView();
+    }
 
-            updateNav();
-        }
+    const titleEl = document.getElementById('view-title');
+    const descEl = document.getElementById('view-description');
+    if (titleEl) titleEl.textContent = data.title;
+    if (descEl) descEl.textContent = data.description;
 
-        function updateNav() {
-            document.querySelectorAll('.nav-link').forEach(link => {
-                if (link.dataset.view === currentView) {
-                    link.classList.add('active');
-                } else {
-                    link.classList.remove('active');
-                }
-            });
-            document.getElementById('mobile-menu').classList.add('hidden');
-        }
+    const contentArea = document.getElementById('dynamic-content-area');
+    if (contentArea) contentArea.innerHTML = data.content;
 
-        function navigateTo(viewKey) {
-            renderView(viewKey);
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
+    updateNav();
+}
 
-        document.querySelectorAll('.nav-link').forEach(button => {
-            button.addEventListener('click', (e) => {
-                const viewKey = e.currentTarget.dataset.view;
-                navigateTo(viewKey);
-            });
-        });
+function updateNav() {
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.classList.toggle('active', link.dataset.view === currentView);
+    });
+    document.getElementById('mobile-menu').classList.add('hidden');
+}
 
-        document.getElementById('mobile-menu-button').addEventListener('click', () => {
-            document.getElementById('mobile-menu').classList.toggle('hidden');
-        });
+function navigateTo(viewKey) {
+    renderView(viewKey);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
 
-        window.onload = () => {
-            renderView('home');
-        };
-    </script>
+document.querySelectorAll('.nav-link').forEach(button => {
+    button.addEventListener('click', (e) => navigateTo(e.currentTarget.dataset.view));
+});
+
+document.getElementById('mobile-menu-button').addEventListener('click', () => {
+    document.getElementById('mobile-menu').classList.toggle('hidden');
+});
+
+window.onload = () => renderView('home');
+</script>
+
 </body>
 </html>
+
 
 
 
