@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,21 +20,19 @@
         }
 
         .service-image {
-            transition: opacity 0.8s ease-in-out;
+            transition: opacity 1s ease-in-out;
             max-height: 500px;
             object-fit: cover;
-            background-color: #10B981; /* green background */
+            background-color: #10B981;
             padding: 10px;
             border-radius: 8px;
-            width: 100%;
         }
 
         .hero-bg {
-            background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),
-                        url('https://placehold.co/1200x600/10B981/ffffff?text=GH+Green+Landscaping');
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+            url('https://placehold.co/1200x600/10B981/ffffff?text=GH+Green+Landscaping');
             background-size: cover;
             background-position: center;
-            border-radius: 12px;
         }
     </style>
 </head>
@@ -50,7 +47,9 @@
 
         <nav class="hidden md:flex space-x-8 text-lg font-medium">
             <button class="nav-link" data-view="home">Home</button>
+            <button class="nav-link" data-view="trimming">Tree & Palm Trimming</button>
             <button class="nav-link" data-view="planting">Plant Installation</button>
+            <button class="nav-link" data-view="mowing">Mowing & Weed Eating</button>
         </nav>
 
         <button id="mobile-menu-button" class="md:hidden text-gray-600">
@@ -63,7 +62,9 @@
 
     <div id="mobile-menu" class="hidden md:hidden shadow-lg">
         <button class="nav-link block w-full px-4 py-2 text-left" data-view="home">Home</button>
+        <button class="nav-link block w-full px-4 py-2 text-left" data-view="trimming">Tree & Palm Trimming</button>
         <button class="nav-link block w-full px-4 py-2 text-left" data-view="planting">Plant Installation</button>
+        <button class="nav-link block w-full px-4 py-2 text-left" data-view="mowing">Mowing & Weed Eating</button>
     </div>
 </header>
 
@@ -78,19 +79,44 @@
 const services = {
     home: {
         title: "Your Premier Partner for Outdoor Care",
-        description: "GH Green offers full-service outdoor maintenance, landscaping, and lawn care.",
+        description: "GH Green offers full-service outdoor maintenance, landscaping, trimming, and lawn care.",
         content: `
             <div class="text-center">
                 <h2 class="text-4xl font-bold mb-6">Our Core Services</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="p-6 bg-white rounded-xl shadow-lg">
+                        <h3 class="text-xl font-semibold text-green-700">Tree & Palm Trimming</h3>
+                        <p class="text-gray-600 mt-2">Clean, safe, professional trimming for all heights.</p>
+                        <button onclick="navigateTo('trimming')" class="mt-4 text-green-600">Learn More →</button>
+                    </div>
                     <div class="p-6 bg-white rounded-xl shadow-lg">
                         <h3 class="text-xl font-semibold text-green-700">Plant Installation</h3>
                         <p class="text-gray-600 mt-2">Professional planting and landscape upgrades.</p>
                         <button onclick="navigateTo('planting')" class="mt-4 text-green-600">Learn More →</button>
                     </div>
+                    <div class="p-6 bg-white rounded-xl shadow-lg">
+                        <h3 class="text-xl font-semibold text-green-700">Mowing & Weed Eating</h3>
+                        <p class="text-gray-600 mt-2">Sharp cuts, weed-free edges, and perfect lawns.</p>
+                        <button onclick="navigateTo('mowing')" class="mt-4 text-green-600">Learn More →</button>
+                    </div>
                 </div>
             </div>`,
         carousel_images: []
+    },
+    trimming: {
+        title: "Tree & Palm Trimming",
+        description: "Safe, clean, professional trimming and palm maintenance.",
+        content: `
+            <ul class="list-disc ml-6 space-y-2 text-gray-700">
+                <li>Palm tree cleaning & skinning</li>
+                <li>Tree trimming, shaping & cutting</li>
+                <li>Hazard removal & branch clearing</li>
+                <li>Full debris cleanup always included</li>
+            </ul>`,
+        carousel_images: [
+            "https://raw.githubusercontent.com/ghaithben07/GH-Green/main/tree%20triming.jpeg",
+            "https://raw.githubusercontent.com/ghaithben07/GH-Green/main/tree%20triming.jpg"
+        ]
     },
     planting: {
         title: "Plant Installation",
@@ -105,65 +131,66 @@ const services = {
             "https://raw.githubusercontent.com/ghaithben07/GH-Green/main/plantinstalation4.jpeg",
             "https://raw.githubusercontent.com/ghaithben07/GH-Green/main/plantinstalation5.jpeg"
         ]
+    },
+    mowing: {
+        title: "Mowing & Weed Eating",
+        description: "Crisp mowing, edging, and weed clearing for a perfect lawn.",
+        content: `
+            <ul class="list-disc ml-6 space-y-2 text-gray-700">
+                <li>Weekly or bi-weekly mowing</li>
+                <li>Precision edging on sidewalks & fences</li>
+                <li>Full weed eating & trimming</li>
+                <li>Blowing & debris cleanup included</li>
+            </ul>`,
+        carousel_images: [
+            "https://raw.githubusercontent.com/ghaithben07/GH-Green/main/mowing.jpeg",
+            "https://raw.githubusercontent.com/ghaithben07/GH-Green/main/mowing1.jpeg",
+            "https://raw.githubusercontent.com/ghaithben07/GH-Green/main/mowing3.jpeg",
+            "https://raw.githubusercontent.com/ghaithben07/GH-Green/main/mowing4.jpeg",
+            "https://raw.githubusercontent.com/ghaithben07/GH-Green/main/weedeating1.webp"
+        ]
     }
 };
 
+// --- Carousel & Rendering ---
 let carouselInterval = null;
-const CAROUSEL_TIME = 5000;
+const CAROUSEL_DURATION = 5000;
 
-function renderView(view) {
-    const data = services[view];
-    const container = document.getElementById("view-container");
-
-    if (data.carousel_images.length > 0) {
-        container.innerHTML = serviceLayout(data.carousel_images[0]); // first image loaded immediately
-        initCarousel(view);
-    } else {
-        container.innerHTML = homeLayout();
-    }
-
-    document.getElementById("view-title").textContent = data.title;
-    document.getElementById("view-description").textContent = data.description;
-    document.getElementById("dynamic-content-area").innerHTML = data.content;
-
-    updateNav(view);
+function clearCarousel() {
+    if(carouselInterval) { clearInterval(carouselInterval); carouselInterval = null; }
 }
 
-function updateNav(view) {
-    document.querySelectorAll(".nav-link").forEach(btn => {
-        btn.classList.toggle("active", btn.dataset.view === view);
-    });
-    document.getElementById("mobile-menu").classList.add("hidden");
-}
+function initCarousel(viewKey) {
+    clearCarousel();
+    const serviceData = services[viewKey];
+    if (!serviceData || serviceData.carousel_images.length === 0) return;
 
-function navigateTo(view) {
-    renderView(view);
-    window.scrollTo({ top: 0, behavior: "smooth" });
-}
+    const imageElement = document.getElementById('service-carousel-image');
+    if(!imageElement) return;
 
-function initCarousel(view) {
-    clearInterval(carouselInterval);
-    const images = services[view].carousel_images;
-    const img = document.getElementById("service-carousel-image");
-    let i = 0;
+    let currentIndex = 0;
+    const images = serviceData.carousel_images;
+
+    // Load first image immediately
+    imageElement.src = images[currentIndex];
+    imageElement.style.opacity = '1';
 
     carouselInterval = setInterval(() => {
-        i = (i + 1) % images.length;
-        img.style.opacity = "0";
-
+        currentIndex = (currentIndex + 1) % images.length;
+        imageElement.style.opacity = '0';
         setTimeout(() => {
-            img.src = images[i];
-            img.style.opacity = "1";
-        }, 300);
-    }, CAROUSEL_TIME);
+            imageElement.src = images[currentIndex];
+            imageElement.style.opacity = '1';
+        }, 800);
+    }, CAROUSEL_DURATION);
 }
 
-function serviceLayout(firstImage) {
+function serviceLayout() {
     return `
         <div class="space-y-10">
             <section class="bg-white rounded-xl shadow-xl overflow-hidden">
                 <div class="relative">
-                    <img id="service-carousel-image" class="service-image opacity-100" src="${firstImage}" alt="Service Image"/>
+                    <img id="service-carousel-image" class="service-image w-full opacity-0 transition-opacity duration-700" />
                     <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
                         <div class="text-center text-white">
                             <h2 id="view-title" class="text-5xl font-extrabold"></h2>
@@ -176,13 +203,9 @@ function serviceLayout(firstImage) {
             <section class="grid grid-cols-1 lg:grid-cols-3 gap-8">
                 <div class="lg:col-span-2">
                     <h3 class="text-3xl font-bold text-green-700 mb-4">Our Commitment</h3>
-                    <p class="text-gray-600 mb-6">
-                        We deliver reliable, high-quality service with professional equipment,
-                        attention to detail, and complete cleanup every time.
-                    </p>
+                    <p class="text-gray-600 mb-6">We deliver reliable, high-quality service with professional equipment, attention to detail, and complete cleanup every time.</p>
                     <div id="dynamic-content-area"></div>
                 </div>
-
                 <aside class="bg-gray-100 p-6 rounded-xl shadow-lg">
                     <h3 class="text-2xl font-semibold text-green-700 mb-4">Get a Quote</h3>
                     <a href="tel:5109347226" class="block py-3 bg-green-600 text-white rounded-lg text-center mb-3">Call 510-934-7226</a>
@@ -210,20 +233,51 @@ function homeLayout() {
         </div>`;
 }
 
-// Event listeners
-document.querySelectorAll(".nav-link").forEach(btn => {
-    btn.addEventListener("click", () => navigateTo(btn.dataset.view));
+function renderView(viewKey) {
+    const data = services[viewKey];
+    const container = document.getElementById("view-container");
+
+    if(data.carousel_images.length > 0){
+        container.innerHTML = serviceLayout();
+        initCarousel(viewKey);
+    } else {
+        container.innerHTML = homeLayout();
+    }
+
+    document.getElementById("view-title").textContent = data.title;
+    document.getElementById("view-description").textContent = data.description;
+    document.getElementById("dynamic-content-area").innerHTML = data.content;
+
+    updateNav(viewKey);
+}
+
+function updateNav(viewKey) {
+    document.querySelectorAll(".nav-link").forEach(btn => {
+        btn.classList.toggle("active", btn.dataset.view === viewKey);
+    });
+    document.getElementById("mobile-menu").classList.add("hidden");
+}
+
+function navigateTo(viewKey) {
+    renderView(viewKey);
+    window.scrollTo({top:0, behavior:"smooth"});
+}
+
+document.querySelectorAll(".nav-link").forEach(btn=>{
+    btn.addEventListener("click",()=>navigateTo(btn.dataset.view));
 });
 
-document.getElementById("mobile-menu-button").addEventListener("click", () => {
+document.getElementById("mobile-menu-button").addEventListener("click",()=>{
     document.getElementById("mobile-menu").classList.toggle("hidden");
 });
 
-window.onload = () => renderView("home");
+window.onload = ()=>renderView("home");
 </script>
 
 </body>
 </html>
+
+
 
 
 
